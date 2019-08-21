@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './Conversor.css'
 export default class Conversor extends Component {
   
   // eslint-disable-next-line no-useless-constructor
@@ -12,15 +12,17 @@ export default class Conversor extends Component {
     }
 
     // bind for fornecer o this fora
-    this.conversor = this.conversor.bind(this)
+    this.conversor = this.conversor.bind(this);
   }
 
   conversor(){
+    console.log(this.state);
     let from_to = `${this.props.moedaA}_${this.props.moedaB}`;
     // url from convert
-    let url = `https://free.currconv.com/api/v7/convert?q=${from_to}&compact=ultra&apiKey=fff18b66ff605ff4f08a`;
+    let url = `https://free.currconv.com/api/v7/convert?apiKey=sample-key-do-not-use&q=${from_to}&compact=y`;
 
-    fetch(url).then(res=>{
+    fetch(url)
+    .then(res=>{
       return res.json()
     })
     .then(json=>{
